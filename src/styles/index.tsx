@@ -23,6 +23,11 @@ export const buttonPrimary = css`
     font-size: 14px;
     color: #FFFFFF;
     font-weight: bold;
+
+    ${media.mobile}{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 `
 
 export const buttonOutline = css`
@@ -38,6 +43,11 @@ export const buttonOutline = css`
     border-color:  #FF685B;
     border: 1px solid  #FF685B;
     font-weight: bold;
+
+    ${media.mobile}{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 `
 
 

@@ -1,7 +1,7 @@
 
 import React, { FC } from "react";
 import styled from "styled-components";
-import {buttonPrimary, layout} from "../../../styles";
+import {buttonPrimary, layout, media} from "../../../styles";
 import { buttonOutline } from "../../../styles";
 import { Link } from "react-router-dom";
 import Card from "./Carde";
@@ -21,11 +21,21 @@ const Title = styled.h1`
     margin-top: 96px;
     color: #252B42;
     font-weight: bold;
+
+    ${media.mobile}{
+        font-size: 28px;
+        margin-top: 56px;
+
+    }
 `
 const WrapperButton = styled.div`
     display: flex;
     margin-top: 35px;
     margin-bottom: 96px;
+
+    ${media.mobile}{
+        margin-bottom: 30px;
+    }
 `
 
 const ButtonLogin = styled.button`
@@ -40,6 +50,12 @@ const WrapperCard = styled.div`
     display: flex;
     justify-content: space-between;
     grid-gap: 30px;
+
+    ${media.mobile}{
+        flex-direction: column;
+        margin-left: 24px;
+        margin-right: 24px;
+    }
     
 `
 

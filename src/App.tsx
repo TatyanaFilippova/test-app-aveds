@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Route, useNavigate} from 'react-ro
 import PageContacts from './pages/public/PageContacts/PageContacts';
 import PageProfile from './pages/protected/PageProfile/PageProfile';
 import useUserStore from './store/authStore';
+import GlobalStyle from './styles/globalStyle';
 
 
 const PrivateRoute: FC<PropsWithChildren> = ({ children }) => {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router} />
+   <><GlobalStyle/><RouterProvider router={router} /></> 
   );
 }
 

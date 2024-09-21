@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components";
+import { media } from ".";
+
+const GlobalStyle = createGlobalStyle`
 /* Reset and base styles  */
 * {
 	padding: 0px;
@@ -95,4 +99,10 @@ legend {
 	padding: 60px;
 	box-shadow: 0px 13px 19px 0px #00000012;
 
+    ${media.mobile}{
+        width: 100%;
+    }
 }
+`
+
+export default GlobalStyle

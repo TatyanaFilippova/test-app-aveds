@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styled  from "styled-components";
+import { media } from "../../../styles";
 
 const Wrapper = styled.div`
     display: flex;
@@ -8,6 +9,10 @@ const Wrapper = styled.div`
     box-shadow: 0px 13px 19px 0px #00000012;
     padding: 35px 40px;
     width: 33.33%;
+
+    ${media.mobile}{
+        width: 100%;
+    }
 
 `
 

@@ -4,6 +4,7 @@ import logo from '../../assets/logo.png'
 import { Link } from "react-router-dom";
 import useAuthModal from "../../store/authModalStore";
 import useUserStore from "../../store/authStore";
+import { media } from "../../styles";
 
 const Wrapper = styled.div`
     display: flex;
@@ -13,6 +14,11 @@ const Wrapper = styled.div`
     padding-left: 70px;
     padding-right: 70px;
     border-bottom: 1px solid black;
+    
+    ${media.mobile}{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 `
 
 const Logo = styled.img`
@@ -37,6 +43,11 @@ const Button = styled.button`
     height: 40px;
     border-radius: 7px;
     margin-left: 50px;
+
+    ${media.mobile}{
+        width: 106px;
+        margin-left: 10px;
+    }
 
 
 `

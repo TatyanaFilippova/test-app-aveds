@@ -1,7 +1,7 @@
 
 import React, { FC } from "react";
 import styled from "styled-components";
-import { buttonPrimary } from "../../../styles";
+import { buttonPrimary, media } from "../../../styles";
 import { buttonOutline } from "../../../styles";
 import { layout } from "../../../styles";
 import { Link } from "react-router-dom";
@@ -17,6 +17,10 @@ const Title = styled.h1`
     margin-top: 96px;
     color: #252B42;
     font-weight: bold;
+
+    ${media.mobile}{
+        font-size: 28px;
+    }
 `
 const WrapperButton = styled.div`
     display: flex;

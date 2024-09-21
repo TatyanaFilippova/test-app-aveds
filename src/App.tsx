@@ -1,11 +1,10 @@
-import React, { FC, PropsWithChildren, useEffect } from 'react';
+import { FC, PropsWithChildren, useEffect } from 'react';
 import PageHome from './pages/public/PageHome/PageHome';
 import { createBrowserRouter, RouterProvider, Route, useNavigate} from 'react-router-dom';
 import PageContacts from './pages/public/PageContacts/PageContacts';
 import PageProfile from './pages/protected/PageProfile/PageProfile';
 import useUserStore from './store/authStore';
 import GlobalStyle from './styles/globalStyle';
-
 
 const PrivateRoute: FC<PropsWithChildren> = ({ children }) => {
   const user = useUserStore(state=>state.user);

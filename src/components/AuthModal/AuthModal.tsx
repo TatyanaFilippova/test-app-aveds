@@ -2,10 +2,12 @@ import useAuthModal from "../../store/authModalStore"
 import Modal from 'react-modal'
 import { useForm, SubmitHandler } from "react-hook-form"
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom"
+import useUserStore from "../../store/authStore"
 
 type Inputs = {
-    example: string
-    exampleRequired: string
+    login: string
+    password: string
   }
 
 const Form = styled.form`
@@ -25,26 +27,62 @@ const Input = styled.input`
 
 `
 
+interface User {
+    id: string, 
+    login: string
+    password: string
+    name: string
+}
+
 
 const AuthModal = () =>{
     const isOpen = useAuthModal((state) => state.isOpen)
+    const closeModal = useAuthModal((state) => state.closeModal)
+
+    const navigate = useNavigate()
+
     const {
         register,
         handleSubmit,
        
         formState: { errors },
       } = useForm<Inputs>()
-      const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
+      const login = useUserStore(state => state.login)
+
+      const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        const result = await fetch("/api/users.json")
+
+        const users: User[] = await result.json()
+
+        const currentUser = users.find(item => {
+            if (item.login === data.login) {
+                if (item.password === data.password) {
+                    return true
+                }
+            }
+            return false
+        })
+
+        if (!currentUser) {
+            alert("Неверный логин или пароль")
+        } else {
+            login(currentUser)
+            closeModal()
+            navigate('/profile')
+        }
+      }
     
       
     return(
-        <Modal className='auth-modal' isOpen={isOpen}>
+        <Modal className='auth-modal' isOpen={isOpen} onRequestClose={closeModal}>
            <Form onSubmit={handleSubmit(onSubmit)}>
     
-      <Input placeholder="Введите логин " {...register("example" , { required: true })} />
-      <Input placeholder="Введите пароль " type="password"{...register("exampleRequired", { required: true, minLength: 8 })} />
+      <Input placeholder="Введите логин " {...register("login" , { required: true })} />
+      <Input placeholder="Введите пароль " type="password"{...register("password", { required: true, minLength: 8 })} />
     
-      {errors.exampleRequired && <span>Ошибка</span>}
+      {errors.login && <span>Ошибка Логина</span>}
+      {errors.password && <span>Ошибка Пароля</span>}
 
       <input type="submit" />
     </Form>

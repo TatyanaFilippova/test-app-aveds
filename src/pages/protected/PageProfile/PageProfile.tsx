@@ -6,6 +6,7 @@ import { buttonOutline } from "../../../styles";
 import { layout } from "../../../styles";
 import { Link } from "react-router-dom";
 import Layout from "../../../components/Layout/Layout";
+import useUserStore from "../../../store/authStore";
 
 const Wrapper = styled.div`
     ${layout}
@@ -32,12 +33,17 @@ const ButtonOutline = styled(Link)`
 `
 
 const PageProfile: FC = () =>{
+    const user = useUserStore(state => state.user)
+    const logout = useUserStore(state => state.logout)
+
+    if (!user) return null;
+
     return(
         <Layout>
             <Wrapper>
-                <Title>Привет, Сергей</Title>
+                <Title>Привет, {user.name}</Title>
                 <WrapperButton>
-                    <ButtonLogin>Выйти из аккаунта</ButtonLogin>
+                    <ButtonLogin onClick={logout}>Выйти из аккаунта</ButtonLogin>
                     <ButtonOutline to={'/contacts'}>Перейти в контакты</ButtonOutline>
                 </WrapperButton>
                 

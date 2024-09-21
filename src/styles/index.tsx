@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 
 export const media = {
     mobile: "@media (max-width: 599px)"

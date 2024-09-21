@@ -1,11 +1,11 @@
 
 import React, { FC } from "react";
-import Header from "../../../components/Header/Header";
 import styled from "styled-components";
 import { buttonPrimary } from "../../../styles";
 import { buttonOutline } from "../../../styles";
 import { layout } from "../../../styles";
 import { Link } from "react-router-dom";
+import Layout from "../../../components/Layout/Layout";
 
 const Wrapper = styled.div`
     ${layout}
@@ -33,8 +33,7 @@ const ButtonOutline = styled(Link)`
 
 const PageProfile: FC = () =>{
     return(
-        <div>
-            <Header/>
+        <Layout>
             <Wrapper>
                 <Title>Привет, Сергей</Title>
                 <WrapperButton>
@@ -43,7 +42,7 @@ const PageProfile: FC = () =>{
                 </WrapperButton>
                 
             </Wrapper>
-        </div>
+        </Layout>
     )
 }
 

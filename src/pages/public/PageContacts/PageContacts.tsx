@@ -1,8 +1,8 @@
 
 import React, { FC } from "react";
-import Header from "../../../components/Header/Header";
 import styled from "styled-components";
 import { layout } from "../../../styles";
+import Layout from "../../../components/Layout/Layout";
 
 const Wrapper = styled.div`
     ${layout}
@@ -15,12 +15,11 @@ const Title = styled.div`
 
 const PageContacts: FC = () =>{
     return(
-        <div>
-            <Header/>
+        <Layout>
             <Wrapper>
                 <Title>Контакты</Title>
             </Wrapper>
-        </div>
+        </Layout>
     )
 }
 

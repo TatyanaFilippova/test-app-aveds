@@ -1,6 +1,5 @@
 
 import React, { FC } from "react";
-import Header from "../../../components/Header/Header";
 import styled from "styled-components";
 import {buttonPrimary, layout} from "../../../styles";
 import { buttonOutline } from "../../../styles";
@@ -9,6 +8,8 @@ import Card from "./Carde";
 import iconHeart from '../../../assets/iconHeart.png'
 import iconStethoscope from '../../../assets/iconStethoscope.png'
 import iconTable from '../../../assets/iconTable.png'
+import Layout from "../../../components/Layout/Layout";
+import useAuthModal from "../../../store/authModalStore";
 
 
 const Wrapper = styled.div`
@@ -43,13 +44,13 @@ const WrapperCard = styled.div`
 `
 
 const PageHome: FC = () =>{
+    const openModal = useAuthModal((state)=> state.openModal)
     return(
-        <>
-            <Header/>
+        <Layout>
             <Wrapper>
                 <Title>Место для получения медицинской помощи</Title>
                 <WrapperButton>
-                    <ButtonLogin>Войти</ButtonLogin>
+                    <ButtonLogin onClick={openModal}>Войти</ButtonLogin>
                     <ButtonOutline to={'/contacts'}>Контакты</ButtonOutline>
                 </WrapperButton>
                 <WrapperCard>
@@ -58,7 +59,7 @@ const PageHome: FC = () =>{
                     <Card icon={iconTable} title="Лечение рака" content="Рыба текст"/>
                 </WrapperCard>
             </Wrapper>
-        </>
+        </Layout>
     )
 }
 

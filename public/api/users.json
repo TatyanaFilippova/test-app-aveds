@@ -1,8 +1,14 @@
 [
     {
         "id": "1", 
-        "login": "test1",
+        "login": "rick",
         "password": "12345678",
-        "name": "Пользователь 1"
+        "name": "Рик Санчез"
+    },
+    {
+        "id": "2", 
+        "login": "morty",
+        "password": "12345678",
+        "name": "Морти Смит"
     }
 ]

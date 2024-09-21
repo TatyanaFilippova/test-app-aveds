@@ -10,6 +10,7 @@ import iconStethoscope from '../../../assets/iconStethoscope.png'
 import iconTable from '../../../assets/iconTable.png'
 import Layout from "../../../components/Layout/Layout";
 import useAuthModal from "../../../store/authModalStore";
+import useUserStore from "../../../store/authStore";
 
 
 const Wrapper = styled.div`
@@ -62,12 +63,14 @@ const WrapperCard = styled.div`
 
 const PageHome: FC = () =>{
     const openModal = useAuthModal((state)=> state.openModal)
+    const user = useUserStore((state)=> state.user)
+
     return(
         <Layout>
             <Wrapper>
                 <Title>Место для получения медицинской помощи</Title>
                 <WrapperButton>
-                    <ButtonLogin onClick={openModal}>Войти</ButtonLogin>
+                    {!user && <ButtonLogin onClick={openModal}>Войти</ButtonLogin>}
                     <ButtonOutline to={'/contacts'}>Контакты</ButtonOutline>
                 </WrapperButton>
                 <WrapperCard>

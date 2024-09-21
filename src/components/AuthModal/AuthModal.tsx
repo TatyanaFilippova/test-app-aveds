@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
 import useUserStore from "../../store/authStore"
 import { buttonPrimary } from "../../styles"
+import { UserApi } from "../../types"
 
 type Inputs = {
     login: string
@@ -29,12 +30,6 @@ const Input = styled.input`
 
 `
 
-interface User {
-    id: string, 
-    login: string
-    password: string
-    name: string
-}
 
 const ButtonForm = styled.button`
     ${buttonPrimary};
@@ -66,7 +61,7 @@ const AuthModal = () =>{
       const onSubmit: SubmitHandler<Inputs> = async (data) => {
         const result = await fetch("/api/users.json")
 
-        const users: User[] = await result.json()
+        const users: UserApi[] = await result.json()
 
         const currentUser = users.find(item => {
             if (item.login === data.login) {

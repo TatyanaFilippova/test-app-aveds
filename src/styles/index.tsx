@@ -1,10 +1,17 @@
 import styled, { css } from "styled-components";
 
+export const media = {
+    mobile: "@media (max-width: 599px)"
+}
+
 export const layout = css`
-    width: 1046px;
+    max-width: 1026px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-left: auto;
     margin-right: auto;
 `
+
 export const buttonPrimary = css`
     height: 52px;
     display: flex;

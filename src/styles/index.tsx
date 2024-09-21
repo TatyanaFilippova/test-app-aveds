@@ -23,6 +23,11 @@ export const buttonPrimary = css`
     font-size: 14px;
     color: #FFFFFF;
     font-weight: bold;
+    transition: all 0.2s linear;
+
+    &:hover{
+        opacity: 0.7;
+    }
 
     ${media.mobile}{
         padding-left: 20px;
@@ -43,6 +48,12 @@ export const buttonOutline = css`
     border-color:  #FF685B;
     border: 1px solid  #FF685B;
     font-weight: bold;
+    transition: all 0.2s linear;
+
+    &:hover{
+        color: #FFFFFF;
+        background-color: #FF685B;
+    }
 
     ${media.mobile}{
         padding-left: 20px;

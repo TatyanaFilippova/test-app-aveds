@@ -32,6 +32,10 @@ const Content = styled.div`
 const StyledLink = styled(Link)`
     font-size: 15px;
     color: #737373;
+
+    &:hover{
+        opacity: 0.7;
+    }
 `
 
 const Button = styled.button`
@@ -44,6 +48,7 @@ const Button = styled.button`
     margin-left: 50px;
     padding-left: 60px;
     padding-right: 60px;
+    transition: all 0.2s linear;
 
     ${media.mobile}{
         margin-left: 10px;
@@ -51,6 +56,10 @@ const Button = styled.button`
     padding-right: 20px;
     }
 
+    &:hover{
+        color: #FFFFFF;
+        background-color: #FF685B;
+    }
 
 `
 

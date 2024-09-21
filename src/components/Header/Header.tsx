@@ -62,7 +62,9 @@ const Header: FC = () =>{
     return(
         <Wrapper>
             <div>
-                <Logo src={logo}/>
+                <Link to={user ? '/profile' : '/'} >
+                    <Logo src={logo}/>
+                </Link>
             </div>
             <Content>
                 <StyledLink to={'/contacts'}>Контакты</StyledLink>

@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { FC, PropsWithChildren, useEffect } from 'react';
 import PageHome from './pages/public/PageHome/PageHome';
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Route, useNavigate} from 'react-router-dom';
 import PageContacts from './pages/public/PageContacts/PageContacts';
 import PageProfile from './pages/protected/PageProfile/PageProfile';
+import useUserStore from './store/authStore';
+
+
+const PrivateRoute: FC<PropsWithChildren> = ({ children }) => {
+  const user = useUserStore(state=>state.user);
+  const navigate = useNavigate()
+  useEffect(()=>{
+    if(!user){
+      navigate('/')
+    }
+  },[user])
+  return <>{children}</>
+   
+  
+}
 
 const router = createBrowserRouter([
   {
@@ -14,7 +29,7 @@ const router = createBrowserRouter([
     element: <PageContacts />,
   },
   {path: "/profile",
-  element: <PageProfile />,
+  element: <PrivateRoute><PageProfile /></PrivateRoute>,
 },
 ]);
 

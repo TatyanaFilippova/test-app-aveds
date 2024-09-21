@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from '../../assets/logo.png'
 import { Link } from "react-router-dom";
 import useAuthModal from "../../store/authModalStore";
+import useUserStore from "../../store/authStore";
 
 const Wrapper = styled.div`
     display: flex;
@@ -40,7 +41,10 @@ const Button = styled.button`
 
 `
 
+
 const Header: FC = () =>{
+    const user = useUserStore(state=>state.user);
+    const logout = useUserStore(state=>state.logout)
     const openModal = useAuthModal((state)=> state.openModal)
     return(
         <Wrapper>
@@ -49,7 +53,8 @@ const Header: FC = () =>{
             </div>
             <Content>
                 <StyledLink to={'/contacts'}>Контакты</StyledLink>
-                <Button onClick={openModal}>Войти</Button>
+                
+                {!user? <Button onClick={openModal}>Войти</Button>: <Button onClick={logout}>Выйти</Button>}
 
             </Content>
         </Wrapper>

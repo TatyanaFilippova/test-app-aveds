@@ -35,7 +35,7 @@ const ButtonLogin = styled.button`
 const ButtonOutline = styled(Link)`
     ${buttonOutline};
     margin-left: 10px;
-`
+` 
 const WrapperCard = styled.div`
     display: flex;
     justify-content: space-between;

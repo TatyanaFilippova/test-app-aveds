@@ -87,3 +87,12 @@ label {
 legend {
 	display: block;
 }
+
+.auth-modal{
+	width: 600px;
+	margin: 100px auto;
+	background-color: white;
+	padding: 60px;
+	box-shadow: 0px 13px 19px 0px #00000012;
+
+}

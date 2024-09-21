@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import styled from "styled-components";
 import logo from '../../assets/logo.png'
 import { Link } from "react-router-dom";
+import useAuthModal from "../../store/authModalStore";
 
 const Wrapper = styled.div`
     display: flex;
@@ -27,7 +28,6 @@ const StyledLink = styled(Link)`
 `
 
 const Button = styled.button`
-    
     font-size: 20px;
     color: #FF685B;
     border: 2px solid #FF685B;
@@ -41,6 +41,7 @@ const Button = styled.button`
 `
 
 const Header: FC = () =>{
+    const openModal = useAuthModal((state)=> state.openModal)
     return(
         <Wrapper>
             <div>
@@ -48,7 +49,7 @@ const Header: FC = () =>{
             </div>
             <Content>
                 <StyledLink to={'/contacts'}>Контакты</StyledLink>
-                <Button>Войти</Button>
+                <Button onClick={openModal}>Войти</Button>
 
             </Content>
         </Wrapper>

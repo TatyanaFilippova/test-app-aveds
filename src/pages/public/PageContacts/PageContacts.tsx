@@ -15,6 +15,7 @@ const Title = styled.div`
 
     ${media.mobile}{
         font-size: 28px;
+        line-height: 40px;
         margin-top: 100px;
     }
 `

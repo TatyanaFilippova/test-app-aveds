@@ -21,6 +21,7 @@ const Title = styled.h1`
 
     ${media.mobile}{
         font-size: 28px;
+        line-height: 40px;
     }
 `
 const WrapperButton = styled.div`

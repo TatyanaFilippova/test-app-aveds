@@ -39,14 +39,16 @@ const Button = styled.button`
     color: #FF685B;
     border: 2px solid #FF685B;
     background-color: #FFFFFF;
-    width: 186px;
     height: 40px;
     border-radius: 7px;
     margin-left: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
 
     ${media.mobile}{
-        width: 106px;
         margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     }
 
 

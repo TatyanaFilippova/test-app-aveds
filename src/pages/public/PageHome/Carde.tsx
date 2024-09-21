@@ -32,11 +32,13 @@ const IconCard = styled.img`
 
 const Title = styled.div`
     font-size: 16px;
+    line-height: 24px;
     font-weight: bold;
     margin-bottom: 20px;
 `
 const Content = styled.div`
     font-size: 14px;
+    line-height: 20px;
     color: #737373;
 `
 const Line = styled.div`

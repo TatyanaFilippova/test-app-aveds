@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 `
 const Title = styled.div`
     font-size: 58px;
+    line-height: 80px;
     font-weight: bold;
     margin-top: 184px;
 

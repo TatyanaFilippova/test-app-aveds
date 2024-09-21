@@ -2,6 +2,10 @@ import { createGlobalStyle } from "styled-components";
 import { media } from ".";
 
 const GlobalStyle = createGlobalStyle`
+body {
+  font-family: 'Montserrat Variable', sans-serif;
+}
+
 /* Reset and base styles  */
 * {
 	padding: 0px;

@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
 import useUserStore from "../../store/authStore"
+import { buttonPrimary } from "../../styles"
 
 type Inputs = {
     login: string
@@ -13,6 +14,7 @@ type Inputs = {
 const Form = styled.form`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 const Input = styled.input`
     font-size: 20px;
@@ -34,6 +36,17 @@ interface User {
     name: string
 }
 
+const ButtonForm = styled.button`
+    ${buttonPrimary};
+    width: auto;
+    margin-top: 20px;
+        
+`
+const Title = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+`
 
 const AuthModal = () =>{
     const isOpen = useAuthModal((state) => state.isOpen)
@@ -72,20 +85,23 @@ const AuthModal = () =>{
             navigate('/profile')
         }
       }
+
+ 
     
       
     return(
         <Modal className='auth-modal' isOpen={isOpen} onRequestClose={closeModal}>
            <Form onSubmit={handleSubmit(onSubmit)}>
+                <Title>Авторизация</Title>
     
-      <Input placeholder="Введите логин " {...register("login" , { required: true })} />
-      <Input placeholder="Введите пароль " type="password"{...register("password", { required: true, minLength: 8 })} />
+             <Input placeholder="Введите логин " {...register("login" , { required: true })} />
+            <Input placeholder="Введите пароль " type="password"{...register("password", { required: true, minLength: 8 })} />
     
-      {errors.login && <span>Ошибка Логина</span>}
-      {errors.password && <span>Ошибка Пароля</span>}
+            {errors.login && <span>Ошибка Логина</span>}
+            {errors.password && <span>Ошибка Пароля</span>}
 
-      <input type="submit" />
-    </Form>
+            <div><ButtonForm type="submit" >Отправить</ButtonForm></div>
+             </Form>
             
         </Modal>
     )
